@@ -1,6 +1,11 @@
 <div>
-
-    <ul>
-        <li ng-repeat = "item in items">{{ item }}</li>
+    <input ng-model = "newItemName">
+    <button ng-click = "addItem(newItemName)">Add New To-Do</button>
+    <ul class = "list_items">
+        <li ng-repeat = "item in items track by $index">
+            <input type = "checkbox" ng-model = "item.done">
+            <span class = "done_{{item.done}}">{{ item.text }}</span>
+        </li>
     </ul>
+    <button ng-click = "removeDone()">Remove Done</button>
 </div>
