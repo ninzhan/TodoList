@@ -9,28 +9,11 @@ module.config(function($stateProvider){
         params:{
             listName: "Welcome!"
         },
-        templateUrl: 'list.html',
+        template: '<list listName="name"></list>',
         controller: function($stateParams, listService, $scope){
-            console.log($stateParams);
+
             $scope.name = $stateParams.listName;
-            $scope.items = listService.getItems($scope.name);
-            $scope.newItemName = null;
-            $scope.addItem = function(name){
-                console.log($scope.items);
-                if(listService.checkItem($scope.name, name)){
-                    return false;
-                }else{
-                    console.log(listService.getItems($scope.name));
-                    listService.addItem($scope.name, name);
-                    $scope.items = listService.getItems($scope.name);
-                }
-                $scope.newItemName = null;
-            };
-            $scope.removeDone = function(){
-                console.log("removing");
-                listService.removeItems($scope.name);
-                $scope.items = listService.getItems($scope.name);
-            };
+
         }
     });
 });
