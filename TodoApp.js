@@ -9,11 +9,11 @@ module.config(function($stateProvider){
         params:{
             listName: "Welcome!"
         },
-        template: '<list listName="name"></list>',
-        controller: function($stateParams, listService, $scope){
+        template: '<list list-name="name"></list>',
+        controller: function($stateParams, $scope){
 
             $scope.name = $stateParams.listName;
-
+            console.log($scope.name);
         }
     });
 });

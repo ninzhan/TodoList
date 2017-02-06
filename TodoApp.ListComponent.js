@@ -3,11 +3,17 @@
  */
 module.component("list", {
     restrict: "E",
-    controller: function($listService, $scope){
+    controller: function(listService, $scope){
+        console.log(this.listName);
+
+        $scope.listName = this.listName;
+
         $scope.items = listService.getItems($scope.listName);
+
+
+
         $scope.newItemName = null;
         $scope.addItem = function(name){
-            console.log($scope.items);
             if(listService.checkItem($scope.listName, name)){
                 return false;
             }else{
@@ -26,6 +32,5 @@ module.component("list", {
     bindings: {
         listName: "="
     },
-    transclude: true,
     templateUrl: "list.html"
 });
