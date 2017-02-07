@@ -5,6 +5,7 @@
     <title>TodoList</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="TodoApp.js"></script>
     <script src="TodoApp.listService.js"></script>
     <script src="TodoApp.statesController.js"></script>
@@ -20,7 +21,7 @@
             <input ng-model="newListName">
             <button ng-click="addList(newListName)">Add New List</button>
             <div class = "lists">
-                <a ng-repeat="list in lists track by $index" ui-sref="lists({listName: list})" class = "tab">{{ list }}</a>
+                <a ng-repeat="list in lists track by $index" ui-sref="lists({listName: list.name})" class = "tab">{{ list.name }}</a>
             </div>
 
         </div>

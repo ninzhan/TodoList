@@ -1,7 +1,7 @@
 /**
  * Created by Joseph on 1/6/17.
  */
-var module = angular.module("TodoApp", ["ui.router"]);
+var module = angular.module("TodoApp", ["ui.router", "ngStorage"]);
 
 module.config(function($stateProvider){
     $stateProvider.state('lists', {
@@ -13,7 +13,6 @@ module.config(function($stateProvider){
         controller: function($stateParams, $scope){
 
             $scope.name = $stateParams.listName;
-            console.log($scope.name);
         }
     });
 });

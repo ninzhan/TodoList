@@ -4,14 +4,14 @@
 (function(){
 
     module.controller("statesController", [ "$scope", '$state', "listService", function($scope, $state, listService){
-        $scope.lists = ["Welcome!"];
-        $scope.newListName = null;
+        $scope.lists = listService.lists;
+        $scope.newListName = "New List Here";
         $scope.addList = function(){
-
             listService.addList($scope.newListName);
             $scope.lists.push($scope.newListName);
             $state.go("lists", { listName: $scope.newListName });
-            $scope.newListName = null;
+            $scope.newListName = "New List Here";
+
         }
     }]);
 
